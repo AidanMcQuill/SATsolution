@@ -23,4 +23,8 @@
     <Folder Include="wwwroot\_Archive\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SATapp.DATA.EF\SATapp.DATA.EF.csproj" />
+  </ItemGroup>
+
 </Project>
