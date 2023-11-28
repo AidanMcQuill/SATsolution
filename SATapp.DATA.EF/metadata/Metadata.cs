@@ -140,7 +140,7 @@ namespace SATapp.DATA.EF/*.metadata*/
         public virtual ICollection<Student> Students { get; set; }
     }
 
-   public class ScheduledClassStatus
+   public class ScheduledClassStatusMetadata
     {
         public int Scsid { get; set; }
         [Required(ErrorMessage = "Must include the Status")]
