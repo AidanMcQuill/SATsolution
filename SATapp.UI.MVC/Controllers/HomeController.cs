@@ -18,6 +18,31 @@ namespace SATapp.UI.MVC.Controllers
             return View();
         }
 
+        public IActionResult Courses()
+        {
+            return View();
+        }
+
+        public IActionResult Enrollment()
+        {
+            return View();
+        }
+
+        public IActionResult Classes()
+        {
+            return View();
+        }
+
+        public IActionResult Students()
+        {
+            return View();
+        }        
+
+        public IActionResult Contact()
+        {
+            return View();
+        }        
+
         public IActionResult Privacy()
         {
             return View();
