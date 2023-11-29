@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SATapp.DATA.EF/*.metadata*/
+namespace SATapp.DATA.EF.Models/*.metadata*/
 {
    public class CourseMetadata
     {
