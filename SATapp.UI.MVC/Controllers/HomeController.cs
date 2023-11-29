@@ -1,16 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SATapp.UI.MVC.Models;
 using System.Diagnostics;
+using MimeKit;
+using MailKit.Net.Smtp;
+using static Org.BouncyCastle.Math.EC.ECCurve;
 
 namespace SATapp.UI.MVC.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IConfiguration _configuration;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IConfiguration config)
         {
             _logger = logger;
+            _configuration = config;
         }
 
         public IActionResult Index()
@@ -38,10 +43,50 @@ namespace SATapp.UI.MVC.Controllers
             return View();
         }        
 
-        public IActionResult Contact()
+        public IActionResult Contact(ContactViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                string message = $"You have recieved an email from {model.FirstName} {model.LastName}" +
+                    $"(reply to: {model.Email}.\n" +
+                    $"*Message: \n{model.Message}";
+
+                var Msg = new MimeMessage();
+                Msg.From.Add(new MailboxAddress("No Reply", _configuration.GetValue<string>("Credentials:Email:User")));
+                Msg.To.Add(new MailboxAddress("You", _configuration.GetValue<string>("Credentials:Email:User")));
+
+                Msg.Subject = model.Subject;
+                Msg.Body = new TextPart("HTML") { Text = model.Message };
+                Msg.ReplyTo.Add(new MailboxAddress(model.FirstName + " " + model.LastName, model.Email));
+
+                using (var Client = new SmtpClient())
+                {
+                    try
+                    {
+                        Client.Connect(_configuration.GetValue<string>("Credentials:Email:Client"), 8889);
+
+                        Client.Authenticate(_configuration.GetValue<string>("Credentials:Email:User"),
+                                            _configuration.GetValue<string>("Credentials:Email:Password"));
+
+                        Client.Send(Msg);
+                    }
+                    catch (Exception ex)
+                    {
+                        ViewBag.ErrorMessage = $"An error occured while sending this email, try again later please";
+                        return View(model);
+                    }
+
+                }
+
+                return RedirectToAction(nameof(ThankYou));
+            }
+            return View(model); // shoots the user back to the same page view 
+        }
+
+        public IActionResult ThankYou()
         {
             return View();
-        }        
+        }
 
         public IActionResult Privacy()
         {
