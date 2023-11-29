@@ -5,7 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace SATapp.UI.MVC.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Scheduling")]
+
     public class AdministrationController : Controller
     {
         #region Props/Ctors

@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SATapp.DATA.EF.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SATapp.UI.MVC.Controllers
 {
+    [Authorize(Roles = "Admin, Scheduling")]    
     public class ScheduledClassesController : Controller
     {
         private readonly SATContext _context;
