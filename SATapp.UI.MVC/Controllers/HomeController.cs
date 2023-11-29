@@ -3,7 +3,7 @@ using SATapp.UI.MVC.Models;
 using System.Diagnostics;
 using MimeKit;
 using MailKit.Net.Smtp;
-using static Org.BouncyCastle.Math.EC.ECCurve;
+using Microsoft.Extensions.Configuration;
 
 namespace SATapp.UI.MVC.Controllers
 {
