@@ -29,6 +29,15 @@ namespace SATapp.UI.MVC.Controllers
                           Problem("Entity set 'SATContext.StudentStatuses'  is null.");
         }
 
+        
+
+        public async Task<IActionResult> TiledStudents()
+        {
+            var students =  _context.StudentStatuses;
+                
+            return View(await students.ToListAsync());
+        }
+
         // GET: StudentStatus/Details/5
         public async Task<IActionResult> Details(int? id)
         {
