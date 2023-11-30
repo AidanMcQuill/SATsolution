@@ -20,6 +20,8 @@ namespace SATapp.UI.MVC.Controllers
             _context = context;
         }
 
+         
+
         // GET: Enrollments
         public async Task<IActionResult> Index()
         {
