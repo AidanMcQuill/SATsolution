@@ -12,12 +12,15 @@ namespace SATapp.DATA.EF.Models/*.metadata*/
     public partial class Course { }
     [ModelMetadataType(typeof(EnrollmentMetadata))]
     public partial class Enrollment { }
-
+    [ModelMetadataType(typeof(ScheduledClassMetadata))]
     public partial class ScheduledClass { }
-
-    public partial class Student { }
+    [ModelMetadataType(typeof(StudentMetadata))]
+    public partial class Student {
+        public string FullName => $"{FirstName} {LastName}";
+    }
+    [ModelMetadataType(typeof(StudentStatusMetadata))]
 
     public partial class StudentStatus { }
-
+    [ModelMetadataType(typeof(ScheduledClassMetadata))]
     public partial class ScheduledClassStatus { }
 }

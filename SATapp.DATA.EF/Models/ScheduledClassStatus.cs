@@ -13,6 +13,6 @@ namespace SATapp.DATA.EF.Models
         public int Scsid { get; set; }
         public string Scsname { get; set; } = null!;
 
-        public virtual ICollection<ScheduledClass> ScheduledClasses { get; set; }
+        public virtual ICollection<ScheduledClass>? ScheduledClasses { get; set; } = null!;
     }
 }

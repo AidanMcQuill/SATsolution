@@ -83,7 +83,7 @@
 
                         <li><a href="@Url.Action("Index","Students")" aria-current="page" class="nav-link link-text">Students</a></li>
                     }
-                    @if (User.IsInRole("Admin"))
+                   @if (User.IsInRole("Admin")) 
                     {
                         <li class="dropdown">
                             <a href="#"><span>Admin</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
@@ -193,11 +193,11 @@
     <script src="~/assets/vendor/purecounter/purecounter_vanilla.js"></script>
     <script src="~/assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="~/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="~/assets/vendor/php-email-form/validate.js"></script>
+   @*  <script src="~/assets/vendor/php-email-form/validate.js"></script> *@
 
     <!-- Template Main JS File -->
     <script src="~/assets/js/main.js"></script>
 
-</body>
 @await RenderSectionAsync("Scripts", false)
+</body>
 </html>

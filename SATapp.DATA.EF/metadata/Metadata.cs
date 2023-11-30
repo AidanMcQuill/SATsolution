@@ -84,6 +84,7 @@ namespace SATapp.DATA.EF.Models/*.metadata*/
 
    public class StudentMetadata
     {
+        [Key]
         public int StudentId { get; set; }
         [Required(ErrorMessage = "Must include the Student's First Name")]
         [StringLength(20, ErrorMessage = "Must not exceed 20 characters.")]
@@ -110,19 +111,20 @@ namespace SATapp.DATA.EF.Models/*.metadata*/
         [StringLength(10, ErrorMessage = "Must not exceed 10 characters.")]
         [Display(Name = "Zip Code")]
         public string? ZipCode { get; set; }
-        public string? Phone { get; set; }
+        
         [DataType(DataType.PhoneNumber)]
         [StringLength(13, ErrorMessage = "Must not exceed 13 characters.")]
         [Display(Name = "Phone Number ")]
+        public string? Phone { get; set; }
+        [Display(Name = "Email")]
         public string Email { get; set; } = null!;
-        public string? PhotoUrl { get; set; }
-        [DataType(DataType.Url)]
+      
         [StringLength(100, ErrorMessage = "Must not exceed 100 characters.")]
         [Display(Name = "Photo URL")]
+        public string? PhotoUrl { get; set; }
+        [Display(Name = "Ssid")]
         public int Ssid { get; set; }
 
-        public virtual StudentStatus Ss { get; set; } = null!;
-        public virtual ICollection<Enrollment> Enrollments { get; set; }
     }
 
    public class StudentStatusMetadata

@@ -51,7 +51,7 @@ namespace SATapp.UI.MVC.Controllers
         public IActionResult Create()
         {
             ViewData["ScheduledClassId"] = new SelectList(_context.ScheduledClasses, "ScheduledClassId", "InstructorName");
-            ViewData["StudentId"] = new SelectList(_context.Students, "StudentId", "Email");
+            ViewData["StudentId"] = new SelectList(_context.Students, "StudentId", "FullName"); //Full name
             return View();
         }
 
@@ -69,7 +69,7 @@ namespace SATapp.UI.MVC.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ScheduledClassId"] = new SelectList(_context.ScheduledClasses, "ScheduledClassId", "InstructorName", enrollment.ScheduledClassId);
-            ViewData["StudentId"] = new SelectList(_context.Students, "StudentId", "Email", enrollment.StudentId);
+            ViewData["StudentId"] = new SelectList(_context.Students, "StudentId", "FullName", enrollment.StudentId);
             return View(enrollment);
         }
 
@@ -87,7 +87,7 @@ namespace SATapp.UI.MVC.Controllers
                 return NotFound();
             }
             ViewData["ScheduledClassId"] = new SelectList(_context.ScheduledClasses, "ScheduledClassId", "InstructorName", enrollment.ScheduledClassId);
-            ViewData["StudentId"] = new SelectList(_context.Students, "StudentId", "Email", enrollment.StudentId);
+            ViewData["StudentId"] = new SelectList(_context.Students, "StudentId", "FullName", enrollment.StudentId);
             return View(enrollment);
         }
 
@@ -124,7 +124,7 @@ namespace SATapp.UI.MVC.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ScheduledClassId"] = new SelectList(_context.ScheduledClasses, "ScheduledClassId", "InstructorName", enrollment.ScheduledClassId);
-            ViewData["StudentId"] = new SelectList(_context.Students, "StudentId", "Email", enrollment.StudentId);
+            ViewData["StudentId"] = new SelectList(_context.Students, "StudentId", "FullName", enrollment.StudentId);
             return View(enrollment);
         }
 
