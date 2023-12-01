@@ -33,8 +33,8 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: var(--font-default);
-  color: var(--color-default);
+    font-family: var(--font-default);
+    color: var(--color-default);
 }
 
 a {
@@ -46,6 +46,22 @@ a:hover {
   color: #00b6a1;
   text-decoration: none;
 }
+
+.Home {
+    background-image: url('../img/custom imgs/calendar_blog.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: auto;
+    min-height: 75vh
+}
+    .Home h1 {
+        background-color: #0b5394;
+        opacity: 0.90;
+        color: white;
+        padding: 10px;
+        padding-top: 5px;
+    }
 
 h1,
 h2,
@@ -414,7 +430,7 @@ section {
     opacity: 0;
     visibility: hidden;
     background: #fff;
-    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.25);
     transition: 0.3s;
     border-radius: 4px;
   }
@@ -428,7 +444,7 @@ section {
     font-size: 15px;
     text-transform: none;
     font-weight: 600;
-    color: #006a5d;
+    color:  var(--color-primary);
   }
 
   .navbar .dropdown ul a i {
